@@ -4,7 +4,7 @@ gitlab_get_number_of_pages(){
   local gitlab_url gitlab_token
   gitlab_url=${1}
   gitlab_token=${2}
-  echo "$(curl -s -I "${gitlab_url}/api/v4/projects?private_token=${gitlab_token}&per_page=100" | grep x-total-pages | awk '{print $2}')"
+  echo "$(curl -s -I "${gitlab_url}/api/v4/projects?private_token=${gitlab_token}&per_page=100" | grep -i x-total-pages | awk '{print $2}')"
 }
 
 gitlab_get_list_of_project() {
